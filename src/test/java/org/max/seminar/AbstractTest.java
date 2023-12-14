@@ -5,7 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,8 +18,8 @@ public class AbstractTest {
     private static Connection connection;
     private static SessionFactory ourSessionFactory;
 
-    @BeforeAll
-    static void init() {
+    @BeforeEach
+    void init() {
         try {
             //Регистрация драйвера
             Class.forName("org.sqlite.JDBC");
@@ -42,8 +44,8 @@ public class AbstractTest {
 
 
 
-    @AfterAll
-    static void close() throws SQLException {
+    @AfterEach
+   void close() throws SQLException {
         connection.close();
         getSession().close();
         System.out.println("Closed database successfully");
