@@ -109,5 +109,4 @@ public class ClientTest extends AbstractTest {
         Assertions.assertEquals(lastname, entity.get().getLastName());
 
     }
-
 }
