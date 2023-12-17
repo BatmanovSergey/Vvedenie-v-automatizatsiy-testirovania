@@ -17,6 +17,7 @@ public class ProductsEntity {
     }
 
     public void setProductId(short productId) {
+
         this.productId = productId;
     }
 
