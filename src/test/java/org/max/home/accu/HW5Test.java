@@ -146,7 +146,7 @@ public class HW5Test extends AbstractTest {
 
     @Test
     void testGBResponce() throws IOException, URISyntaxException {
-        logger.info("testGBResponce запущен");
+        logger.info("testGBResponce запущен!");
         //given
         stubFor(get(urlPathEqualTo("/gb.ru/lessons/384443"))
                 .withQueryParam("api", equalTo("1234567890"))
@@ -171,7 +171,7 @@ public class HW5Test extends AbstractTest {
         HttpResponse response = httpClient.execute(request);
 
         //then
-        verify(getRequestedFor(urlPathEqualTo("/gb/lessons/384443")));
+        verify(getRequestedFor(urlPathEqualTo("/gb.ru/lessons/384443")));
 
         assertEquals(200, response.getStatusLine().getStatusCode());
         assertEquals("Content-Type: text/html", response.getFirstHeader("Content-Type").toString());
@@ -179,5 +179,6 @@ public class HW5Test extends AbstractTest {
         HttpEntity entity = response.getEntity();
         String bodyString = EntityUtils.toString(entity, "UTF-8");
         assertEquals("GeekBrains is greeting you - student", bodyString);
+        logger.info("testGBResponce завершён!");
     }
 }
