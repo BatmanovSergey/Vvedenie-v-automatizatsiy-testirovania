@@ -37,5 +37,4 @@ public class SimilarRecipesTest extends AbstractTest {
         assertEquals(500, response.getStatusLine().getStatusCode());
         assertEquals("ERROR", convertResponseToString(response));
     }
-
 }
